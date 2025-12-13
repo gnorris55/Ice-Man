@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Moving_Enemy
 
 @export var direction: Vector2 = Vector2.ZERO
 var can_collide: bool

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxw7kpfudeajs"]
+
+[ext_resource type="Script" path="res://Mechanics/snow_bal_enemy.gd" id="1_wawgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au7ya"]
+
+[node name="SnowBalEnemy" type="RigidBody2D"]
+gravity_scale = 5.0
+script = ExtResource("1_wawgv")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_au7ya")
