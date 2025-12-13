@@ -9,8 +9,24 @@ const STARTING_VEL = 300.0
 const MAX_VEL = 600.0
 const ACCEL = 200
 
-func _ready() -> void:
-	$AnimatedSprite2D.play()
+const RUNNING_ANIMATION_SPEEDUP = 2
+
+#func _ready() -> void:
+	
+
+#Returns the proportion of how sped up the character is
+func get_speedup():
+	return (abs(velocity.x) - STARTING_VEL)/STARTING_VEL
+
+func get_vel_jump_modifier():
+	return 1 + get_speedup()/2
+
+func set_running_animaton_speed():
+	$AnimatedSprite2D.speed_scale = 1 + RUNNING_ANIMATION_SPEEDUP * get_speedup()
+	print($AnimatedSprite2D.speed_scale)
+
+#want to rotate player to the surface they are on
+#speed up/slow down animation
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -19,12 +35,14 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * get_vel_jump_modifier()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		$AnimatedSprite2D.play("running")
+		set_running_animaton_speed()
 		$AnimatedSprite2D.flip_h = false
 		if direction > 0:# Going right
 			if velocity.x < STARTING_VEL:
@@ -44,5 +62,7 @@ func _physics_process(delta: float) -> void:
 			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.speed_scale = 1
 
 	move_and_slide()
