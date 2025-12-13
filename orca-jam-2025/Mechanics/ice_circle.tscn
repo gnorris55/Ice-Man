@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvl64iexctv0e"]
+
+[ext_resource type="Script" uid="uid://5mgxu4rfrk1s" path="res://Mechanics/ice_circle.gd" id="1_viygt"]
+
+[node name="iceCircle" type="Node2D"]
+script = ExtResource("1_viygt")
