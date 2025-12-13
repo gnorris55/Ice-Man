@@ -8,18 +8,21 @@ const JUMP_VELOCITY = -400.0
 const STARTING_VEL = 300.0
 const MAX_VEL = 600.0
 const ACCEL = 200
+const TEMPVECTOR = Vector2(0,-1)
 
 const RUNNING_ANIMATION_SPEEDUP = 2
 
-#func _ready() -> void:
-	
+#wwd wdawdad
 
 #Returns the proportion of how sped up the character is
 func get_speedup():
 	return (abs(velocity.x) - STARTING_VEL)/STARTING_VEL
 
 func get_vel_jump_modifier():
-	return 1 + get_speedup()/2
+	var modifier = get_speedup()/2
+	if modifier < 0:
+		return 1
+	return 1 + modifier
 
 func set_running_animaton_speed():
 	$AnimatedSprite2D.speed_scale = 1 + RUNNING_ANIMATION_SPEEDUP * get_speedup()
@@ -63,5 +66,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimatedSprite2D.play("idle")
 		$AnimatedSprite2D.speed_scale = 1
+		
+	#rotation = TEMPVECTOR.angle_to(velocity)
 
 	move_and_slide()
