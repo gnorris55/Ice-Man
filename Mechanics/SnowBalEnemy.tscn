@@ -3,18 +3,22 @@
 [sub_resource type="GDScript" id="GDScript_745ot"]
 script/source = "extends Moving_Enemy
 
+@onready var timer: Timer = $Timer
 const SNOWBALL_SCENE: PackedScene = preload(\"res://Mechanics/snowball.tscn\")
 var homing: bool = true
 var throw_speed: float = 300
 var random_throw_angle_range: float = 45
+var thrown: bool = false
+var can_throw: bool = true
 
 func _physics_process(_delta: float) -> void:
-	if homing:
-		var player = get_player()
-		if player:
-			lock_in_player(player)
-	else:
-		throw_randomly()
+	if can_throw and not thrown:
+		if homing:
+			var player = get_player()
+			if player:
+				lock_in_player(player)
+		else:
+			throw_randomly()
 		
 func lock_in_player(player):
 	if player is CharacterBody2D:
@@ -38,8 +42,16 @@ func fire_snowball(init_velocity: Vector2):
 	var instance = SNOWBALL_SCENE.instantiate()
 	add_child(instance)
 	instance.global_position = global_position
+	instance.scale /= 2
 	instance.velocity = init_velocity
+	thrown = true
 	
+func _on_timer_timeout() -> void:
+	if can_throw:
+		can_throw = false
+		return
+	can_throw = true
+	thrown = false
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au7ya"]
@@ -52,3 +64,8 @@ script = SubResource("GDScript_745ot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_au7ya")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
