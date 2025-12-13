@@ -11,6 +11,7 @@ size = Vector2(1256, 17)
 [node name="GraemeScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.8, 2.8)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_a3mu7")]
 position = Vector2(0, -76)
