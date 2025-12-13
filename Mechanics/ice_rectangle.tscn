@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba6euiiltsejy"]
+[gd_scene load_steps=5 format=3 uid="uid://ba6euiiltsejy"]
 
 [ext_resource type="Script" uid="uid://cx6pvyvl28qiv" path="res://Mechanics/ice_rectangle.gd" id="1_s5gu2"]
+[ext_resource type="Texture2D" uid="uid://21is70p37ejf" path="res://art/ice_texture.png" id="2_euf75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfulh"]
 size = Vector2(20, 5)
@@ -39,6 +40,10 @@ initial_velocity_max = 30.0
 angle_min = 29.1
 angle_max = 232.7
 color = Color(0.347227, 0.740897, 0.935717, 1)
+
+[node name="iceSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_euf75")
 
 [connection signal="timeout" from="meltTimer" to="." method="_on_melt_timer_timeout"]
 [connection signal="area_entered" from="projectileDetector" to="." method="_on_projectile_detector_area_entered"]
