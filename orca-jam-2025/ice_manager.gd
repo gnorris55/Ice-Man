@@ -2,7 +2,7 @@ extends Node2D
 
 const ICE_RECTANGLE = preload("res://Mechanics/ice_rectangle.tscn")
 
-@onready var character_body_2d: CharacterBody2D = $CharacterBody2D
+@export var character_body_2d: CharacterBody2D
 
 @export var placement_epsilon = 1.0
 
@@ -51,6 +51,12 @@ func ice_rectangle_placement(ice_rectangle):
 	#print("After: " + str(ice_rectangles))
 				
 	
+
+func projectile_hit_ice_rectangle(position, projectile_hit_radius):
+	#for i in range(len())
+	pass
+	
+
 func remove_ice_rectangle(ice_rectangle_id):
 	
 	print(ice_rectangles)
