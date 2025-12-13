@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvl64iexctv0e"]
+[gd_scene load_steps=4 format=3 uid="uid://cvl64iexctv0e"]
 
 [ext_resource type="Script" uid="uid://5mgxu4rfrk1s" path="res://Mechanics/ice_circle.gd" id="1_viygt"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy3n8"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_viygt"]
+material = SubResource("StandardMaterial3D_xy3n8")
+size = Vector2(5, 5)
+
 [node name="iceCircle" type="Node2D"]
 script = ExtResource("1_viygt")
+ice_placement_radius = 20
+
+[node name="icePlacementIndictor" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_viygt")

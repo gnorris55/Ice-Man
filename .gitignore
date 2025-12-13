@@ -1,4 +1,4 @@
 # Godot 4+ specific ignores
-.godot/
-/android/
-project.godot
+orca-jam-2025/.godot/
+orca-jam-2025/android/
+orca-jam-2025/project.godot
