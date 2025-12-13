@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Orca Jam 2025"
-run/main_scene="uid://sg4xngesde8m"
+run/main_scene="uid://mv2y657cnie8"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+run/canvas_textures/default_texture_filter=0
 
 [dotnet]
 

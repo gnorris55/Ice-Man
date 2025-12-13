@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://sg4xngesde8m"]
+[gd_scene load_steps=5 format=3 uid="uid://sg4xngesde8m"]
 
 [ext_resource type="PackedScene" uid="uid://cvgkmlaudds4f" path="res://Mechanics/character_body_2d.tscn" id="1_48aed"]
+[ext_resource type="PackedScene" uid="uid://cvl64iexctv0e" path="res://Mechanics/ice_circle.tscn" id="2_652mk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48aed"]
 size = Vector2(988, 18)
@@ -15,6 +16,8 @@ size = Vector2(1596, 16.5)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 scale = Vector2(4, 4)
 zoom = Vector2(4, 4)
+
+[node name="iceCircle" parent="CharacterBody2D" instance=ExtResource("2_652mk")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

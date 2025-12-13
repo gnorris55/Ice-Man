@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://da87b7s4lxjtr" path="res://Mechanics/character_body_2d.gd" id="1_sp7kr"]
 [ext_resource type="Texture2D" uid="uid://dpw8sq3pllpfr" path="res://art/ice man player character temp.png" id="2_3fx0i"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfrg4"]
-radius = 7.685
-height = 25.12
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fybl6"]
 atlas = ExtResource("2_3fx0i")
 region = Rect2(0, 0, 32, 32)
@@ -111,12 +107,16 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_sp7kr")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfrg4"]
+radius = 7.685
+height = 25.12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_hfrg4")
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_sp7kr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ynpek")
 animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hfrg4")

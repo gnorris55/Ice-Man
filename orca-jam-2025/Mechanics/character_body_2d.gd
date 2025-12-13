@@ -23,7 +23,6 @@ func get_vel_jump_modifier():
 
 func set_running_animaton_speed():
 	$AnimatedSprite2D.speed_scale = 1 + RUNNING_ANIMATION_SPEEDUP * get_speedup()
-	print($AnimatedSprite2D.speed_scale)
 
 #want to rotate player to the surface they are on
 #speed up/slow down animation
