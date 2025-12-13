@@ -17,15 +17,12 @@ var spawning_ice: bool = false
 func _physics_process(delta: float) -> void:
 	
 	mouse_direction = get_mouse_direction()
-	ice_placement_direction = Vector2(-mouse_direction.y, mouse_direction.x)
 	
+	ice_placement_direction = Vector2(-mouse_direction.y, mouse_direction.x)
 	ice_placement_indictor.position = mouse_direction * ice_placement_radius
 	
 	if spawning_ice:
 		spawn_ice_rectangle()
-	
-	
-	
 	
 	
 func spawn_ice_rectangle():
