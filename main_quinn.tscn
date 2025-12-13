@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://sg4xngesde8m"]
+[gd_scene load_steps=5 format=3 uid="uid://hneduk600e7i"]
 
 [ext_resource type="PackedScene" uid="uid://cvgkmlaudds4f" path="res://Mechanics/character_body_2d.tscn" id="1_48aed"]
-[ext_resource type="PackedScene" path="res://Mechanics/snowball.tscn" id="2_652mk"]
+[ext_resource type="PackedScene" uid="uid://c35328bfen8hr" path="res://Mechanics/snowball.tscn" id="2_652mk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48aed"]
 size = Vector2(988, 18)
@@ -26,28 +26,28 @@ position = Vector2(-19, 135)
 shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-395, 8.999985)
-rotation = 0.30543262
+position = Vector2(-395, 8.99998)
+rotation = 0.305433
 shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(753, -198.00002)
+position = Vector2(753, -198)
 rotation = -0.863938
 shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1949.0001, 524)
-rotation = -3.0368729
+position = Vector2(-1949, 524)
+rotation = -3.03687
 shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1170, 213.00002)
+position = Vector2(-1170, 213)
 rotation = -0.863938
 shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1990.0001, -337.00003)
-rotation = 0.41887903
+position = Vector2(-1990, -337)
+rotation = 0.418879
 shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
@@ -56,5 +56,5 @@ shape = SubResource("RectangleShape2D_48aed")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1364, -701)
-rotation = -0.2443461
+rotation = -0.244346
 shape = SubResource("RectangleShape2D_652mk")

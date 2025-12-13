@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c35328bfen8hr"]
+[gd_scene load_steps=3 format=3 uid="uid://c35328bfen8hr"]
 
 [sub_resource type="GDScript" id="GDScript_ly7p2"]
 script/source = "extends Area2D
@@ -30,5 +30,10 @@ func _on_body_entered(body: Node2D) -> void:
 		
 "
 
-[node name="Snowball" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ly7p2"]
+
+[node name="Snowball" type="Area2D"]
 script = SubResource("GDScript_ly7p2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ly7p2")

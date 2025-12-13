@@ -4,7 +4,7 @@
 script/source = "extends Moving_Enemy
 
 const SNOWBALL_SCENE: PackedScene = preload(\"res://Mechanics/snowball.tscn\")
-var homing: bool = false
+var homing: bool = true
 var throw_speed: float = 300
 var random_throw_angle_range: float = 45
 
