@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hneduk600e7i"]
+[gd_scene load_steps=7 format=3 uid="uid://hneduk600e7i"]
 
 [ext_resource type="PackedScene" uid="uid://cvgkmlaudds4f" path="res://Mechanics/character_body_2d.tscn" id="1_48aed"]
-[ext_resource type="PackedScene" uid="uid://c35328bfen8hr" path="res://Mechanics/snowball.tscn" id="2_652mk"]
+[ext_resource type="PackedScene" uid="uid://cvl64iexctv0e" path="res://Mechanics/ice_circle.tscn" id="2_idfs4"]
+[ext_resource type="Script" uid="uid://dq60fcyps0ayg" path="res://ice_manager.gd" id="3_idfs4"]
+[ext_resource type="PackedScene" uid="uid://dmr436gq7ao7r" path="res://Mechanics/tile_map.tscn" id="4_iy5q6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48aed"]
 size = Vector2(988, 18)
@@ -17,7 +19,7 @@ size = Vector2(1596, 16.5)
 scale = Vector2(4, 4)
 zoom = Vector2(4, 4)
 
-[node name="Snowball" parent="CharacterBody2D" instance=ExtResource("2_652mk")]
+[node name="iceCircle" parent="CharacterBody2D" instance=ExtResource("2_idfs4")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -58,3 +60,9 @@ shape = SubResource("RectangleShape2D_48aed")
 position = Vector2(-1364, -701)
 rotation = -0.244346
 shape = SubResource("RectangleShape2D_652mk")
+
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("character_body_2d")]
+script = ExtResource("3_idfs4")
+character_body_2d = NodePath("../CharacterBody2D")
+
+[node name="TileMap" parent="." instance=ExtResource("4_iy5q6")]
