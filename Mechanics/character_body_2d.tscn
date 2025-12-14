@@ -112,9 +112,13 @@ animations = [{
 radius = 7.685
 height = 25.12
 
+<<<<<<< HEAD
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynpek"]
 
 [node name="Player" type="CharacterBody2D"]
+=======
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+>>>>>>> 4a2c5dcdf672656153becfb0ef4668df9245ee4f
 script = ExtResource("1_sp7kr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

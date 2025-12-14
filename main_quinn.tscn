@@ -1,13 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://hneduk600e7i"]
 
 [ext_resource type="PackedScene" uid="uid://cvgkmlaudds4f" path="res://Mechanics/character_body_2d.tscn" id="1_48aed"]
-[ext_resource type="PackedScene" uid="uid://c35328bfen8hr" path="res://Mechanics/snowball.tscn" id="2_652mk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_48aed"]
-size = Vector2(988, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_652mk"]
-size = Vector2(1596, 16.5)
+[ext_resource type="PackedScene" uid="uid://cvl64iexctv0e" path="res://Mechanics/ice_circle.tscn" id="2_idfs4"]
+[ext_resource type="Script" uid="uid://dq60fcyps0ayg" path="res://ice_manager.gd" id="3_idfs4"]
+[ext_resource type="PackedScene" uid="uid://dmr436gq7ao7r" path="res://Mechanics/tile_map.tscn" id="4_iy5q6"]
 
 [node name="main_quinn" type="Node2D"]
 
@@ -17,44 +13,12 @@ size = Vector2(1596, 16.5)
 scale = Vector2(4, 4)
 zoom = Vector2(4, 4)
 
-[node name="Snowball" parent="CharacterBody2D" instance=ExtResource("2_652mk")]
+[node name="iceCircle" parent="CharacterBody2D" instance=ExtResource("2_idfs4")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-19, 135)
-shape = SubResource("RectangleShape2D_48aed")
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("character_body_2d")]
+script = ExtResource("3_idfs4")
+character_body_2d = NodePath("../CharacterBody2D")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-395, 8.99998)
-rotation = 0.305433
-shape = SubResource("RectangleShape2D_48aed")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(753, -198)
-rotation = -0.863938
-shape = SubResource("RectangleShape2D_48aed")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1949, 524)
-rotation = -3.03687
-shape = SubResource("RectangleShape2D_48aed")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1170, 213)
-rotation = -0.863938
-shape = SubResource("RectangleShape2D_48aed")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1990, -337)
-rotation = 0.418879
-shape = SubResource("RectangleShape2D_48aed")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1846, -127)
-shape = SubResource("RectangleShape2D_48aed")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1364, -701)
-rotation = -0.244346
-shape = SubResource("RectangleShape2D_652mk")
+[node name="TileMap" parent="." instance=ExtResource("4_iy5q6")]
