@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvgkmlaudds4f"]
+[gd_scene load_steps=20 format=3 uid="uid://cvgkmlaudds4f"]
 
 [ext_resource type="Script" uid="uid://da87b7s4lxjtr" path="res://Mechanics/character_body_2d.gd" id="1_sp7kr"]
 [ext_resource type="Texture2D" uid="uid://dpw8sq3pllpfr" path="res://art/ice man player character temp.png" id="2_3fx0i"]
+[ext_resource type="PackedScene" uid="uid://cvl64iexctv0e" path="res://Mechanics/ice_circle.tscn" id="3_ynpek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fybl6"]
 atlas = ExtResource("2_3fx0i")
@@ -111,7 +112,13 @@ animations = [{
 radius = 7.685
 height = 25.12
 
+<<<<<<< HEAD
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynpek"]
+
+[node name="Player" type="CharacterBody2D"]
+=======
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+>>>>>>> 4a2c5dcdf672656153becfb0ef4668df9245ee4f
 script = ExtResource("1_sp7kr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -119,5 +126,12 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ynpek")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player collision"]]
 shape = SubResource("CapsuleShape2D_hfrg4")
+
+[node name="iceCircle" parent="." instance=ExtResource("3_ynpek")]
+
+[node name="playerArea" type="Area2D" parent="." groups=["player collision"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerArea"]
+shape = SubResource("CapsuleShape2D_ynpek")
