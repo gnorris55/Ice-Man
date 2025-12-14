@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0u2sfj3kl4hy"]
 
-[ext_resource type="Script" uid="uid://dq60fcyps0ayg" path="res://ice_manager.gd" id="1_1wkoi"]
+[ext_resource type="Script" path="res://ice_manager.gd" id="1_1wkoi"]
 [ext_resource type="PackedScene" uid="uid://cvl64iexctv0e" path="res://Mechanics/ice_circle.tscn" id="1_qp8h6"]
 [ext_resource type="PackedScene" uid="uid://cvgkmlaudds4f" path="res://Mechanics/character_body_2d.tscn" id="2_a3mu7"]
 [ext_resource type="PackedScene" uid="uid://bxw7kpfudeajs" path="res://Mechanics/SnowBalEnemy.tscn" id="4_vv45o"]
@@ -31,4 +31,4 @@ script = ExtResource("1_1wkoi")
 character_body_2d = NodePath("../CharacterBody2D")
 
 [node name="SnowBalEnemy" parent="." instance=ExtResource("4_vv45o")]
-position = Vector2(189, -114)
+position = Vector2(84, -42)
